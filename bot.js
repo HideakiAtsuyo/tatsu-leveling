@@ -1,9 +1,9 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const config = require('./config.json');
+const Discord = require("discord.js"),
+      client = new Discord.Client(),
+      config = require('./config.json');
 client.config = config;
 
-console.log("Ready to level up!");
+console.log(`Ready to level up!\nAccount: ${client.user.username}`);
 
 try {
   client.on("message", async message => {
@@ -23,8 +23,7 @@ try {
         // random sentence by pulling words from a dictionary file, or to just send a random
         // arrangement of characters and integers. Doing something like this may help prevent
         // future moderation bots from detecting that you sent a spam message.
-        message.channel.send(pesan[~~(Math.random() * pesan.length)]);
-		    console.log("Message = " + count);
+        message.channel.send(pesan[~~(Math.random() * pesan.length)]);console.log(`Message: ${count}`);
 		
 		if (count < maxMessages) {
           // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
@@ -43,10 +42,8 @@ try {
         } else {
           // Sends a message when count is equal to maxMessages. Else statement can be
           // modified/removed without consequence.
-          message.channel.send("------------------");
-          message.channel.send("I AM FINISHED!!!");
-          message.channel.send("------------------");
-        }
+          message.channel.send("------------------\nI AM FINISHED!!!\n------------------");
+          }
       }
 
       message.delete().catch(O_o=>{})
